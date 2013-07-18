@@ -2,43 +2,30 @@
 
 Class M_Home Extends CI_Model {
 	
-	function __construct()
+	public function __construct()
 	{
-		/* parent classin constructorini yazmana gerek yok */
-		$this->load->database();
+		parent::__construct();
+		$this->load->model('dictionary');
 	}
 	
-	function getAllInDict()
+	public function getUserInfo()
 	{
-		/* kolonlari virgulle ayirarak yaziyorsun */
-		$this->db->select("dict_key, dict_value");
-		/* hangi tablodan aldigin */
-		$this->db->from("dictionary");
-		/* where kismi*/
-		//$this->db->where('key =','name');
-		/* sonuclari limitle */
-		//$this->db->limit(2);
-		/* sorguyu calistir */
-		$query = $this->db->get();
-		/* ekrana queryi bastir */
-		//echo $this->db->last_query();
-		/* sonucu goster */
-		//print_r($query->result());
-		/* sonucu dondur */
-		//return $query->result();
-		return $query->result_array();
-	}
-	
-	function getUserInfo($info)
-	{
-		$this->db->select("dict_value");
-		$this->db->from("dictionary");
-		$this->db->where('dict_key =', $info);
-		$this->db->limit(1);
+		$data['user_name'] = $this->dictionary->getSingleInfo('user_name')->dict_value;
+		$data['user_surname'] = $this->dictionary->getSingleInfo('user_surname')->dict_value;
+		$data['user_position'] = $this->dictionary->getSingleInfo('user_position')->dict_value;
+		$data['user_department'] = $this->dictionary->getSingleInfo('user_department')->dict_value;
+		$data['user_mail'] = $this->dictionary->getSingleInfo('user_mail')->dict_value;
+		$data['user_work_address'] = $this->dictionary->getSingleInfo('user_work_address')->dict_value;
+		$data['user_work_phone'] = $this->dictionary->getSingleInfo('user_work_phone')->dict_value;
+		$data['user_work_room'] = $this->dictionary->getSingleInfo('user_work_room')->dict_value;
+		$data['user_work_location'] = $this->dictionary->getSingleInfo('user_work_location')->dict_value;
+		$data['user_university'] = $this->dictionary->getSingleInfo('user_university')->dict_value;
+		$data['user_research_areas'] = $this->dictionary->getSingleInfo('user_research_areas')->dict_value;
+		$data['user_education'] = $this->dictionary->getSingleInfo('user_education')->dict_value;
+		$data['user_quote'] = $this->dictionary->getSingleInfo('user_quote')->dict_value;
 		
-		$query = $this->db->get();
-		
-		return $query->row();
+		return $data;
 	}
+
 }
 ?>
