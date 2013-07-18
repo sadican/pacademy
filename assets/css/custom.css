@@ -1,0 +1,46 @@
+.spaceUp {
+	margin-top: 12px;
+}
+
+.spaceDown {
+	margin-bottom: 12px;
+}
+
+.profilImageBox {
+	padding-top: 10px;
+	padding-bottom: 25px;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: #FFF;
+	max-height: 320px;
+	min-height: 220px;
+	max-width: 320px;
+	min-width: 220px;
+	width: auto;
+	height: auto;
+}
+
+.bgblue {
+	color: #FFF;
+	background: #288aed; 
+}
+
+.bgyellow {
+	color: #000;
+	background: #FFFD7C; 
+}
+
+.bglightblue {
+	color: #000;
+	background: #CDE9FF; 
+}
+
+.bglightgrey {
+	color: #000;
+	background: #F9F9F9; 
+}
+
+body {
+	background-image: url(../assets/img/bg.jpg);
+	background-repeat: repeat;
+}
