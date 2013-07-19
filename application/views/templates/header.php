@@ -11,12 +11,12 @@
        <div class="navbar-inner">
             <a class="brand"><?php echo $user_name ?></a>
             <ul class="nav">
-            	<li class="active"><a href="<?= site_url() ?>application/views/v_home">Anasayfa</a></li>
+            	<li class="active"><a href="<?= site_url() ?>">Anasayfa</a></li>
                 <!--
                 <li><a href="#">Yayınlar</a></li>
                 <li><a href="#">Tezler</a></li>
                 -->
-                <li><a href="<?= site_url() ?>application/views/v_education">Eğitim</a></li>
+                <li><a href="<?= site_url() ?>views/pages/v_education">Eğitim</a></li>
                 <!--
                 <li><a href="#">Dersler</a></li>
                 <li><a href="#">CV</a></li>
