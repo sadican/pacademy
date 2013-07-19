@@ -10,7 +10,7 @@ class C_Home extends CI_Controller {
 	
 	public function index()
 	{
-		$data = $this->m_home->getUserInfo();
+		$data = $this->m_home->getUserProfile();
 		
 		$this->load->view('templates/header', $data);
 		$this->load->view('pages/v_home', $data);
@@ -19,7 +19,7 @@ class C_Home extends CI_Controller {
 
 	public function view()
 	{
-		$data = $this->m_home->getUserInfo();
+		$data = $this->m_home->getUserProfile();
 		
 		$this->load->view('templates/header', $data);
 		$this->load->view('pages/v_home', $data);
