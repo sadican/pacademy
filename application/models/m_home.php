@@ -8,7 +8,7 @@ Class M_Home Extends CI_Model {
 		$this->load->model('dictionary');
 	}
 	
-	public function getUserInfo()
+	public function getUserProfile()
 	{
 		$data['user_name'] = $this->dictionary->getSingleInfo('user_name')->dict_value;
 		$data['user_surname'] = $this->dictionary->getSingleInfo('user_surname')->dict_value;
