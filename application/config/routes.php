@@ -38,12 +38,13 @@
 |
 */
 
-$route['default_controller'] = 'pages/view';
-$route['v_home/(:any)'] = 'v_home/view/$1';
-$route['v_home'] = 'v_home';
-$route['(:any)'] = 'pages/view/$1';
+$route['v_education/(:any)'] = 'c_education/view/$1';
+$route['v_education'] = 'c_education';
+$route['v_home/(:any)'] = 'c_home/view/$1';
+$route['v_home'] = 'c_home';
+$route['(:any)'] = 'c_home/view';
+$route['default_controller'] = 'c_home';
 $route['404_override'] = '';
-
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
