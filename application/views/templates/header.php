@@ -8,11 +8,11 @@
 </head>
 <body style="background: url(<?= site_url() ?>assets/img/bg.jpg) repeat;">
     <div class="navbar navbar-static-top">
-       <div class="navbar-inner">
-            <a class="brand"><?php //echo $header_user_name ?></a>
+       <div class="navbar-inner centerMe">
+            <a class="brand"><?php echo $user_name ?></a>
             <ul class="nav">
             	<li class="active"><a href="<?= site_url() ?>">Anasayfa</a></li>
-                <li><a href="<?= site_url() ?>v_education">Eğitim</a></li>
+                <li><a href="education">Eğitim</a></li>
             </ul>
         </div>
     </div>
