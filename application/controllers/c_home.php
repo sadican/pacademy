@@ -5,30 +5,19 @@ class C_Home extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('m_home');		
+		$this->load->model('m_home');
+		$this->load->library('utility');
+		$this->load->library('header');	
 	}
 	
 	public function index()
 	{
-		$this->_genericView();
-	}
-
-	public function view()
-	{
-		$this->_genericView();
-	}
-
-	public function _genericView()
-	{
-		$dataContent = $this->m_home->getUserProfile();
-		
+		$dataContent = $this->m_home->getUserProfileInformation();
+		/* get static header data and append it to data array */
+		$data = $this->utility->appendToData($this->header->getMenuStaticData(), $dataContent);
+		/* load views */
 		$this->load->view('templates/header', $dataContent);
 		$this->load->view('pages/v_home', $dataContent);
 		$this->load->view('templates/footer');
-	}
-
-	public function testMe()
-	{
-		$this->load->view('pages/v_home', $dataContent);
 	}
 }

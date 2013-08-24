@@ -10,19 +10,19 @@ class C_Education extends CI_Controller {
 	
 	public function index()
 	{
-		$dataHeader = $this->tm_header->getStaticData();
+		$dataContent = $this->m_home->getUserProfile();
 		
-		$this->load->view('templates/header', $dataHeader);
-		$this->load->view('pages/v_education');
+		$this->load->view('templates/header', $dataContent);
+		$this->load->view('pages/v_home', $dataContent);
 		$this->load->view('templates/footer');
 	}
 
 	public function view()
 	{
-		$dataHeader = $this->tm_header->getStaticData();
+		$dataContent = $this->m_home->getUserProfile();
 		
-		$this->load->view('templates/header', $dataHeader);
-		$this->load->view('pages/v_education');
+		$this->load->view('templates/header', $dataContent);
+		$this->load->view('pages/v_home', $dataContent);
 		$this->load->view('templates/footer');
 	}
 }

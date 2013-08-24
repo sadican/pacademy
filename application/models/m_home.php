@@ -5,27 +5,19 @@ Class M_Home Extends CI_Model {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('dictionary');
+		$this->load->library('profile');
+		$this->load->library('dictionary');
+		$this->load->library('utility');
 	}
 	
-	public function getUserProfile()
+	public function getUserProfileInformation()
 	{
-		$data['user_name'] = $this->dictionary->getSingleInfo('user_name')->dict_value;
-		$data['user_surname'] = $this->dictionary->getSingleInfo('user_surname')->dict_value;
-		$data['user_position'] = $this->dictionary->getSingleInfo('user_position')->dict_value;
-		$data['user_department'] = $this->dictionary->getSingleInfo('user_department')->dict_value;
-		$data['user_mail'] = $this->dictionary->getSingleInfo('user_mail')->dict_value;
-		$data['user_work_address'] = $this->dictionary->getSingleInfo('user_work_address')->dict_value;
-		$data['user_work_phone'] = $this->dictionary->getSingleInfo('user_work_phone')->dict_value;
-		$data['user_work_room'] = $this->dictionary->getSingleInfo('user_work_room')->dict_value;
-		$data['user_work_location'] = $this->dictionary->getSingleInfo('user_work_location')->dict_value;
-		$data['user_university'] = $this->dictionary->getSingleInfo('user_university')->dict_value;
-		$data['user_research_areas'] = $this->dictionary->getSingleInfo('user_research_areas')->dict_value;
-		$data['user_education'] = $this->dictionary->getSingleInfo('user_education')->dict_value;
-		$data['user_quote'] = $this->dictionary->getSingleInfo('user_quote')->dict_value;
-		
+		$data['current_education'] = $this->dictionary->getEntry('current_education');
+		$data['fav_quote'] = $this->dictionary->getEntry('fav_quote');
+		/* get profile information and append it to data array */
+		$data = $this->utility->appendToData($this->profile->getProfile(), $data);
+
 		return $data;
 	}
-
 }
 ?>
