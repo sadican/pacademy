@@ -15,7 +15,7 @@ Class M_Home Extends CI_Model {
 		$data['current_education'] = $this->dictionary->getEntry('current_education');
 		$data['fav_quote'] = $this->dictionary->getEntry('fav_quote');
 		/* get profile information and append it to data array */
-		$data = $this->utility->appendToData($this->profile->getProfile(), $data);
+		$data = $this->utility->mergeData($this->profile->getProfile(), $data);
 
 		return $data;
 	}
