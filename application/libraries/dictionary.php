@@ -8,7 +8,7 @@ class Dictionary {
 	public function __construct()
 	{
 		$this->tableName = "dictionary";
-		$this->CI = &get_instance();	
+		$this->CI = &get_instance();
 	}
 	
 	public function getAll()

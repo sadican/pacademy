@@ -2,19 +2,34 @@
 
 class Utility {
 
-	public $CI;// = &get_instance();
+	private $CI;
 
 	public function __construct()
 	{
-		/*
-		$this->CI = &get_instance();
-		*/	
+		//$this->CI = &get_instance();
 	}
 	
-	public function appendToData($tempData, $realData)
+	public function mergeData($tempData, $realData)
 	{
-		foreach ($tempData as $key => $value) {
-			$realData[$key] = $value;
+		if((strcasecmp(gettype($tempData), "array") == 0) 
+			&& (strcasecmp(gettype($realData), "array") == 0) )
+		{
+			$realData = array_merge($tempData, $realData);
+		}
+
+		else if ((strcasecmp(gettype($tempData), "object") == 0)
+			&& (strcasecmp(gettype($realData), "array") == 0) )
+		{
+			foreach ($tempData as $key => $value)
+			{
+				$realData[$key] = $value;
+			}
+		}
+
+		else
+		{
+			echo "LIBRARY(utility) FUNCTION(mergeData) EXPLANATION: if else statement failed!";
+			return null;
 		}
 
 		return $realData;

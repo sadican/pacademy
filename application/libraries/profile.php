@@ -3,32 +3,18 @@
 class Profile {
 
 	private $tableName;
+	private $CI;
 
 	public function __construct()
 	{
-		$this->tableName = "profile";		
+		$this->tableName = "profile";
+		$this->CI = &get_instance();			
 	}
-
-    public function create()
-    {
-
-    }
-
-    public function insert()
-    {
-    	
-    }
-
-    public function update()
-    {
-    	
-    }
 
     public function getProfile()
     {
-    	$CI = &get_instance();
     	/* select * limit 1 */
-		$query = $CI->db->get($this->tableName, 1);
+		$query = $this->CI->db->get($this->tableName, 1);
 
 		if ($query->num_rows() > 0)
 		{
@@ -44,9 +30,8 @@ class Profile {
 
     public function getAll()
     {
-    	$CI = &get_instance();
     	/* select * limit 1 */
-		$query = $CI->db->get($this->tableName);
+		$query = $this->CI->db->get($this->tableName);
 
 		if ($query->num_rows() > 0)
 		{
@@ -62,12 +47,11 @@ class Profile {
 
     public function getOne($column)
     {
-    	$CI = &get_instance();
-    	$CI->db->select($column);
-		$CI->db->from($this->tableName);
-		$CI->db->limit(1);
+    	$this->CI->db->select($column);
+		$this->CI->db->from($this->tableName);
+		$this->CI->db->limit(1);
 		
-		$query = $CI->db->get();
+		$query = $this->CI->db->get();
 
 		if ($query->num_rows() > 0)
 		{
