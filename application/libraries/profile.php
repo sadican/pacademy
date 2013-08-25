@@ -23,24 +23,24 @@ class Profile {
 
 		else
 		{
-			echo "LIBRARY(Profile) FUNCTION(getProfile) EXPLANATION: No result returned!";
+			trigger_error("LIBRARY(Profile) FUNCTION(getProfile) EXPLANATION: No result returned!", E_USER_ERROR);
 			return null;
 		}
     }
 
-    public function getAll()
+    public function selectAll()
     {
     	/* select * limit 1 */
 		$query = $this->CI->db->get($this->tableName);
 
 		if ($query->num_rows() > 0)
 		{
-			return $query->result()[0];
+			return $query->result();
 		}
 
 		else
 		{
-			echo "LIBRARY(Profile) FUNCTION(getAll) EXPLANATION: No result returned!";
+			trigger_error("LIBRARY(Profile) FUNCTION(selectAll) EXPLANATION: No result returned!", E_USER_ERROR);
 			return null;
 		}
     }
@@ -49,7 +49,7 @@ class Profile {
     {
     	$this->CI->db->select($column);
 		$this->CI->db->from($this->tableName);
-		$this->CI->db->limit(1);
+		//$this->CI->db->limit(1);
 		
 		$query = $this->CI->db->get();
 
@@ -60,10 +60,9 @@ class Profile {
 
 		else
 		{
-			echo "LIBRARY(Profile) FUNCTION(getOne) PARAM(". $info .") EXPLANATION: No result returned!";
+			trigger_error("LIBRARY(Profile) FUNCTION(getOne) PARAM(". $info .") EXPLANATION: No result returned!", E_USER_ERROR);
 			return null;
 		}
     }
 }
-/* End of file Profile.php */
 ?>
