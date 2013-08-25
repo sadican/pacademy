@@ -13,7 +13,8 @@ class Header {
 	
 	public function getMenuStaticData()
 	{
-		$data['header_name'] = $this->getEntry('header_name');
+		$data['menu_brand_name'] = $this->getEntry('header_name');
+		$data['head_title_name'] = $data['menu_brand_name'];//$this->getEntry('header_name');
 		return $data;
 	}
 
@@ -26,7 +27,10 @@ class Header {
 		
 		$query = $this->CI->db->get();
 
-		return $query->row()->dict_value;
+		if ($query->num_rows() > 0)
+		{
+			return $query->row()->dict_value;
+		}
 	}
 }
 ?>
